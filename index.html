@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="Pragma" content="no-cache" />   
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Cache" content="no-cache">
+  <title>日常事务</title>
+  <link rel="stylesheet" href="https://unpkg.com/mint-ui@1/lib/style.css">
+  <style>
+    html,body {
+      font-size: 100px !important
+    }
+
+  </style>
+  <script src="//unpkg.com/vue-ydui/dist/ydui.flexible.js" ></script>
+  <script src="https://g.alicdn.com/dingding/open-develop/1.0.0/dingtalk.js" charset="utf-8"></script>
+  <!-- <link rel="stylesheet" href="//res.layui.com/layui/dist/css/layui.css?t=1531663423583" media="all">
+    
+      <script src="//res.layui.com/layui/dist/layui.js?t=1531663423583"></script> -->
+  <script src="/static/config.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>
+<script>
+  ! function (window) {
+    /* 设计图文档宽度 */
+    var docWidth = 750;
+    var doc = window.document,
+      docEl = doc.documentElement,
+      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+
+    var recalc = (function refreshRem() {
+      var clientWidth = docEl.getBoundingClientRect().width;
+
+      /* 8.55：小于320px不再缩小，11.2：大于420px不再放大 */
+      docEl.style.fontSize = Math.max(Math.min(20 * (clientWidth / docWidth), 11.2), 8.55) * 5 + 'px';
+
+      return refreshRem;
+    })();
+
+    /* 添加倍屏标识，安卓为1 */
+    docEl.setAttribute('data-dpr', window.navigator.appVersion.match(/iphone/gi) ? window.devicePixelRatio : 1);
+
+    if (/iP(hone|od|ad)/.test(window.navigator.userAgent)) {
+      /* 添加IOS标识 */
+      doc.documentElement.classList.add('ios');
+      /* IOS8以上给html添加hairline样式，以便特殊处理 */
+      if (parseInt(window.navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/)[1], 10) >= 8)
+        doc.documentElement.classList.add('hairline');
+    }
+
+    if (!doc.addEventListener) return;
+    window.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);  
+}(window)
+</script>
